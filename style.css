@@ -1,0 +1,261 @@
+/* Basic Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content at the top */
+    height: 100vh;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px; /* Add padding for larger screens */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Content Layout */
+.content {
+    display: flex;
+    justify-content: space-between; /* Space out the test section and cheat sheet */
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Allow wrapping when the screen is small */
+}
+
+/* Test Section Styles */
+#testSection {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 60%; /* Makes the test section take up 60% of the space */
+    margin-right: 20px;
+    margin-bottom: 20px; /* Add some space between the sections */
+    transition: all 0.3s ease; /* Smooth transition for resizing */
+}
+
+/* Cheat Sheet Styles */
+.cheatSheet {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 35%; /* Makes the cheat sheet take up 35% of the space */
+    max-height: 80vh;
+    overflow-y: auto; /* Adds scroll if content overflows */
+    display: none; /* Initially hidden */
+    margin-top: 20px; /* Add top margin to separate from test */
+}
+
+/* Cheat Sheet Visible */
+.cheatSheet.visible {
+    display: block;
+}
+
+.cheatSheet h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.cheatSheet ul {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 1em;
+    color: #333;
+}
+
+.cheatSheet li {
+    margin: 5px 0;
+}
+
+/* Special Note Styles */
+.cheatSheet p {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #333;
+}
+
+.cheatSheet p strong {
+    color: #d9534f; /* Red to stand out */
+    font-size: 1.1em;
+}
+
+/* Button Styles */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Input Styles */
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+input[type="number"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Question Styles */
+h3 {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Feedback Styles */
+#testFeedback {
+    font-size: 1.2em;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#testFeedback.correct {
+    color: green;
+}
+
+#testFeedback.incorrect {
+    color: red;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust content layout for smaller screens */
+    .content {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center;
+        margin-top: 20px; /* Less top margin */
+    }
+
+    #testSection {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .cheatSheet {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    input[type="number"] {
+        font-size: 14px;
+    }
+
+    .cheatSheet h3 {
+        font-size: 1.2em;
+    }
+
+    .cheatSheet ul {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 500px) {
+    /* Adjust layout and padding for very small screens (like iPhone 11) */
+    body {
+        padding-top: 20px; /* Adjust top padding */
+        align-items: flex-start; /* Ensure the content stays at the top */
+    }
+
+    /* Additional mobile tweaks */
+    .content {
+        flex-direction: column;
+        margin-top: 10px; /* Add more space between the title and the content */
+    }
+
+    h1 {
+        font-size: 2em; /* Make title smaller to fit better */
+        margin-bottom: 20px;
+    }
+
+    #testSection {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .cheatSheet {
+        width: 100%;
+        margin-top: 20px;
+        max-height: 300px; /* Limit height to prevent overflow */
+        overflow-y: auto;
+    }
+
+    .cheatSheet h3 {
+        font-size: 1.1em;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    input[type="number"] {
+        font-size: 14px;
+    }
+
+    .cheatSheet ul {
+        padding-left: 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    /* When showing the cheat sheet, adjust layout to make sure the top of the page isn't squished */
+    body {
+        padding-top: 40px; /* More space for desktop view when cheat sheet is visible */
+    }
+
+    #testSection {
+        width: 60%; /* Keep the test section size consistent */
+        margin-right: 20px;
+    }
+
+    .cheatSheet {
+        display: block;
+        margin-top: 0; /* Remove extra margin when the cheat sheet is displayed on larger screens */
+    }
+
+    button {
+        font-size: 16px;
+    }
+
+    input[type="number"] {
+        font-size: 16px;
+    }
+
+    .cheatSheet h3 {
+        font-size: 1.5em;
+    }
+
+    .cheatSheet ul {
+        font-size: 1em;
+    }
+}
